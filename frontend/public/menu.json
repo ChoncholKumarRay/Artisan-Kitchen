@@ -1,0 +1,134 @@
+[
+  {
+    "_id": "1",
+    "title": "Paratha with Mixed Vegetable Curry",
+    "desc": "Soft layered paratha served with hot and spicy seasonal vegetable curry.",
+    "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "actualPrice": 50,
+    "discPrice": 40,
+    "price": 40,
+    "label": "breakfast",
+    "estimatedTime": "15-20 min"
+  },
+  {
+    "_id": "2",
+    "title": "Dim Bhuna with Roti",
+    "desc": "Traditional spicy egg curry served with freshly made soft roti.",
+    "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "actualPrice": 55,
+    "discPrice": 45,
+    "price": 45,
+    "label": "breakfast",
+    "estimatedTime": "10-15 min"
+  },
+  {
+    "_id": "2",
+    "title": "Dim Bhuna with Roti",
+    "desc": "Traditional spicy egg curry served with freshly made soft roti.",
+    "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "actualPrice": 55,
+    "discPrice": 45,
+    "price": 45,
+    "label": "breakfast",
+    "estimatedTime": "10-15 min"
+  },
+  {
+    "_id": "3",
+    "title": "Khichuri with Beguni",
+    "desc": "Comforting moong dal khichuri served with crispy eggplant fritters.",
+    "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "actualPrice": 60,
+    "discPrice": 50,
+    "price": 50,
+    "label": "breakfast",
+    "estimatedTime": "20-25 min"
+  },
+  {
+    "_id": "4",
+    "title": "Chicken Biriyani",
+    "desc": "Aromatic rice cooked with marinated chicken and signature spices.",
+    "imageUrl": "https://images.unsplash.com/photo-1601214533705-9f24a51b1c2e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "actualPrice": 180,
+    "discPrice": 160,
+    "price": 160,
+    "label": "lunch",
+    "estimatedTime": "30-40 min"
+  },
+  {
+    "_id": "5",
+    "title": "Shorshe Ilish with Rice",
+    "desc": "Hilsa fish in mustard gravy served with steamed rice.",
+    "imageUrl": "https://images.unsplash.com/photo-1601214533705-9f24a51b1c2e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "actualPrice": 300,
+    "discPrice": 270,
+    "price": 270,
+    "label": "lunch",
+    "estimatedTime": "30-40 min"
+  },
+  {
+    "_id": "6",
+    "title": "Beef Rezala with Polao",
+    "desc": "Rich beef rezala paired with fragrant chinigura rice polao.",
+    "imageUrl": "https://images.unsplash.com/photo-1601214533705-9f24a51b1c2e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "actualPrice": 220,
+    "discPrice": 200,
+    "price": 200,
+    "label": "lunch",
+    "estimatedTime": "35-45 min"
+  },
+  {
+    "_id": "6",
+    "title": "Beef Rezala with Polao",
+    "desc": "Rich beef rezala paired with fragrant chinigura rice polao.",
+    "imageUrl": "https://images.unsplash.com/photo-1601214533705-9f24a51b1c2e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "actualPrice": 220,
+    "discPrice": 200,
+    "price": 200,
+    "label": "lunch",
+    "estimatedTime": "35-45 min"
+  },
+  {
+    "_id": "7",
+    "title": "Beef Tehari",
+    "desc": "Classic Dhaka-style beef tehari with aromatic rice and spices.",
+    "imageUrl": "https://images.unsplash.com/photo-1601214533705-9f24a51b1c2e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "actualPrice": 160,
+    "discPrice": 140,
+    "price": 140,
+    "label": "dinner",
+    "estimatedTime": "25-30 min"
+  },
+  {
+    "_id": "8",
+    "title": "Murgir Jhol with Rice",
+    "desc": "Home-style chicken curry served with plain rice.",
+    "imageUrl": "https://images.unsplash.com/photo-1601214533705-9f24a51b1c2e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "actualPrice": 130,
+    "discPrice": 120,
+    "price": 120,
+    "label": "dinner",
+    "estimatedTime": "20-25 min"
+  },
+  {
+    "_id": "9",
+    "title": "Vegetable Bhuna Khichuri",
+    "desc": "Spicy and rich vegetable khichuri served with chutney and salad.",
+    "imageUrl": "https://images.unsplash.com/photo-1601214533705-9f24a51b1c2e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "actualPrice": 100,
+    "discPrice": 90,
+    "price": 90,
+    "label": "dinner",
+    "estimatedTime": "25-30 min"
+  },
+  {
+    "_id": "10",
+    "title": "Vegetable Bhuna Khichuri",
+    "desc": "Spicy and rich vegetable khichuri served with chutney and salad.",
+    "imageUrl": "https://images.unsplash.com/photo-1601214533705-9f24a51b1c2e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "actualPrice": 100,
+    "discPrice": 90,
+    "price": 90,
+    "label": "dinner",
+    "estimatedTime": "25-30 min"
+  }
+]
