@@ -16,7 +16,7 @@ router.post("/item", async (req, res) => {
       item_id: item._id,
       title: item.title,
       description: item.description,
-      image_url: `/images/${item.image_id}`,
+      image_url: item.image_url,
       actual_price: item.actual_price,
       discount: item.discount,
       price: item.price,
@@ -24,6 +24,44 @@ router.post("/item", async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ error: "Server error", details: err.message });
+  }
+});
+
+router.post("/add", async (req, res) => {
+  const {
+    title,
+    description,
+    image_url,
+    actual_price,
+    discount,
+    price,
+    label,
+    esteemed_time,
+  } = req.body;
+
+  try {
+    const newItem = new foodItem({
+      title,
+      description,
+      image_url,
+      actual_price,
+      discount,
+      price,
+      label,
+      esteemed_time,
+    });
+
+    await newItem.save();
+
+    res
+      .status(201)
+      .json({ success: true, message: "Food item added successfully" });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      error: "Failed to add item",
+      details: err.message,
+    });
   }
 });
 
