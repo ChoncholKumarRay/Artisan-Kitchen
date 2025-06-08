@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import mongoose from "mongoose";
 import foodRoutes from "./routes/foodRoutes.js";
 import menuRoutes from "./routes/menuRoutes.js";
@@ -7,6 +8,7 @@ import userRoutes from "./routes/userRoutes.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+app.use(cors());
 
 const MONGO_URI =
   "mongodb+srv://chonchol:babBivUBi2CEXpPd@cluster0.b0oxdje.mongodb.net/artisan_kitchen?retryWrites=true&w=majority&appName=Cluster0";
