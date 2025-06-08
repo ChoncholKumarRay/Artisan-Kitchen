@@ -3,11 +3,19 @@ import React, { useEffect, useState } from 'react';
 const MenuPage = () => {
   const [menu, setMenu] = useState([]);
   const [activeFilter, setActiveFilter] = useState('all');
+  const [quantities, setQuantities] = useState({});
 
   useEffect(() => {
     fetch('/menu.json')
       .then(res => res.json())
-      .then(data => setMenu(data));
+      .then(data => {
+        setMenu(data);
+        const initialQuantities = {};
+        data.forEach(item => {
+          initialQuantities[item._id] = 1;
+        });
+        setQuantities(initialQuantities);
+      });
   }, []);
 
   const labelColors = {
@@ -16,11 +24,22 @@ const MenuPage = () => {
     dinner: 'bg-orange-400 text-orange-900',
   };
 
-  // Filtered items based on activeFilter state
   const filteredMenu =
     activeFilter === 'all'
       ? menu
       : menu.filter(item => item.label === activeFilter);
+
+  const handleQuantityChange = (id, delta) => {
+    setQuantities(prev => ({
+      ...prev,
+      [id]: Math.max(1, (prev[id] || 1) + delta)
+    }));
+  };
+
+  const handleAddToCart = (item) => {
+    const qty = quantities[item._id] || 1;
+    alert(`Added ${qty} x ${item.title} to cart!`);
+  };
 
   return (
     <div className="bg-gray-100 py-16 px-4 sm:px-10">
@@ -28,7 +47,6 @@ const MenuPage = () => {
         Our Full Menu
       </h1>
 
-      {/* Filter Buttons */}
       <div className="flex justify-center gap-4 mb-12 flex-wrap">
         {['all', 'breakfast', 'lunch', 'dinner'].map(label => (
           <button
@@ -45,11 +63,10 @@ const MenuPage = () => {
         ))}
       </div>
 
-      {/* Menu Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-        {filteredMenu.map((item, idx) => (
+        {filteredMenu.map(item => (
           <div
-            key={`${item._id}-${idx}-${activeFilter}`} // Force rerender with dynamic key
+            key={item._id}
             className="bg-white rounded-xl shadow-xl hover:shadow-2xl transition-all overflow-hidden"
           >
             <div className="relative">
@@ -69,13 +86,38 @@ const MenuPage = () => {
                 {item.title}
               </h3>
               <p className="text-gray-600 text-sm">{item.desc}</p>
-              <div className="flex justify-between items-center mt-4">
+              <div className="flex justify-between items-center mt-4 mb-2">
                 <span className="text-lg font-bold text-gray-800">
                   ৳{item.price}
                 </span>
                 <span className="text-sm text-gray-500">
                   {item.estimatedTime}
                 </span>
+              </div>
+              <div className="flex items-center justify-between gap-4 mt-4">
+                <div className="flex items-center border border-gray-300 rounded-md overflow-hidden shadow-sm">
+                  <button
+                    onClick={() => handleQuantityChange(item._id, -1)}
+                    className="px-3 py-1 text-lg font-bold bg-gray-200 text-gray-800 hover:bg-gray-300 transition"
+                  >
+                    −
+                  </button>
+                  <span className="px-4 py-1 text-lg font-semibold text-gray-800 bg-white">
+                    {quantities[item._id] || 1}
+                  </span>
+                  <button
+                    onClick={() => handleQuantityChange(item._id, 1)}
+                    className="px-3 py-1 text-lg font-bold bg-gray-200 text-gray-800 hover:bg-gray-300 transition"
+                  >
+                    +
+                  </button>
+                </div>
+                <button
+                  onClick={() => handleAddToCart(item)}
+                  className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-4 py-2 rounded-lg"
+                >
+                  Add to Cart
+                </button>
               </div>
             </div>
           </div>
