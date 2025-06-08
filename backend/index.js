@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import foodRoutes from "./routes/foodRoutes.js";
 import menuRoutes from "./routes/menuRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -27,5 +28,6 @@ app.use(express.json());
 app.use("/api/food", foodRoutes);
 app.use("/api/menu", menuRoutes);
 app.use("/api/order", orderRoutes);
+app.use("/api/user", userRoutes);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
