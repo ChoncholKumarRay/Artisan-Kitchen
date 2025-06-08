@@ -3,6 +3,8 @@ import Main from "../Layout/Main"
 import Home from "../Pages/Home"
 import MenuPage from "../Pages/MenuPage"
 import Cart from "../Pages/Cart"
+import Login from "../Pages/Auth/Login"
+import Register from "../Pages/Auth/Register"
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +22,14 @@ export const router = createBrowserRouter([
             {
                 path: "/cart",
                 element: <Cart/>
+            },
+            {
+                path: "/login",
+                element:<Login/>
+            },
+            {
+                path: "/register",
+                element: <Register/>
             }
         ]
     }

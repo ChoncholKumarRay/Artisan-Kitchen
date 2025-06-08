@@ -16,6 +16,17 @@
           "esteemed_time": 25
         },
         {
+          "_id": "68430005765f27cd3f47a3b7",
+          "title": "Paratha",
+          "description": "Aromatic paratha with chicken curry, onions.",
+          "image_url": "https://images.unsplash.com/photo-1683533743190-89c9b19f9ea6",
+          "actual_price": 100,
+          "discount": 20,
+          "price": 80,
+          "label": "breakfast",
+          "esteemed_time": 25
+        },
+        {
           "_id": "6843001f765f27cd3f47a3b8",
           "title": "Chicken Burger",
           "description": "Juicy grilled chicken patty in a soft bun with fresh toppings.",
@@ -65,6 +76,17 @@
           "esteemed_time": 18
         },
         {
+          "_id": "6843055c765f27cd3f47a3ba",
+          "title": "Fish Curry with Rice",
+          "description": "Spicy fish curry served with steamed white rice.",
+          "image_url": "https://images.unsplash.com/photo-1654863404432-cac67587e25d",
+          "actual_price": 220,
+          "discount": 25,
+          "price": 195,
+          "label": "lunch",
+          "esteemed_time": 18
+        },
+        {
           "_id": "68430594765f27cd3f47a3bb",
           "title": "Butter Chicken",
           "description": "Creamy tomato-based curry with tender chicken pieces.",
@@ -92,6 +114,34 @@
           "esteemed_time": 25,
           "createdAt": "2025-06-08T10:52:12.848Z",
           "updatedAt": "2025-06-08T10:52:12.848Z",
+          "__v": 0
+        },
+        {
+          "_id": "68456be03ef6c5c739bd1852",
+          "title": "Paneer Butter Masala",
+          "description": "Cottage cheese cubes in a creamy tomato-based curry.",
+          "image_url": "https://images.unsplash.com/photo-1690401769082-5f475f87fb22",
+          "actual_price": 220,
+          "discount": 20,
+          "price": 200,
+          "label": "dinner",
+          "esteemed_time": 20,
+          "createdAt": "2025-06-08T10:54:24.533Z",
+          "updatedAt": "2025-06-08T10:54:24.533Z",
+          "__v": 0
+        },
+        {
+          "_id": "68456be03ef6c5c739bd1852",
+          "title": "Paneer Butter Masala",
+          "description": "Cottage cheese cubes in a creamy tomato-based curry.",
+          "image_url": "https://images.unsplash.com/photo-1690401769082-5f475f87fb22",
+          "actual_price": 220,
+          "discount": 20,
+          "price": 200,
+          "label": "dinner",
+          "esteemed_time": 20,
+          "createdAt": "2025-06-08T10:54:24.533Z",
+          "updatedAt": "2025-06-08T10:54:24.533Z",
           "__v": 0
         },
         {
