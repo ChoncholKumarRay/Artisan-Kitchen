@@ -9,7 +9,7 @@ const Cart = () => {
       .then(data => setCartItems(data));
   }, []);
 
-  const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
+  const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
     <div className="bg-gray-100 min-h-screen px-4 py-10">
@@ -37,6 +37,7 @@ const Cart = () => {
                 <div className="flex items-center gap-2">
                   <span className="text-sm text-gray-400 line-through">৳{item.actualPrice}</span>
                   <span className="text-orange-600 font-bold">৳{item.price}</span>
+                  <span className="text-gray-700 text-sm ml-2">× {item.quantity}</span>
                 </div>
               </div>
               <button className="text-red-500 hover:text-red-700 text-sm font-medium">Remove</button>

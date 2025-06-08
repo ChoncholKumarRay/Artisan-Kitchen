@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 const Menu = () => {
-  const [menu, setMenu] = useState([]);
+  const [menu, setMenu] = useState({});
   const [quantities, setQuantities] = useState({});
   const scrollRefs = {
     breakfast: useRef(null),
@@ -13,12 +13,20 @@ const Menu = () => {
     fetch('/menu.json')
       .then(res => res.json())
       .then(data => {
-        setMenu(data);
-        const initial = {};
-        data.forEach(item => {
-          initial[item._id] = 1;
+        const menuData = data[0];
+        setMenu(menuData);
+
+        const allItems = [
+          ...menuData.breakfast.items,
+          ...menuData.lunch.items,
+          ...menuData.dinner.items,
+        ];
+
+        const initialQuantities = {};
+        allItems.forEach(item => {
+          initialQuantities[item._id] = 1;
         });
-        setQuantities(initial);
+        setQuantities(initialQuantities);
       });
   }, []);
 
@@ -42,7 +50,7 @@ const Menu = () => {
   };
 
   const renderSection = (label, bgColor) => {
-    const items = menu.filter(item => item.label === label);
+    const items = menu?.[label]?.items || [];
 
     return (
       <section className={`py-20 px-6 sm:px-10 ${bgColor}`}>
@@ -71,17 +79,17 @@ const Menu = () => {
                 className="min-w-[340px] bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
               >
                 <img
-                  src={item.imageUrl}
+                  src={item.image_url}
                   alt={item.title}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6 space-y-3">
                   <h3 className="text-xl font-bold text-orange-600">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.desc}</p>
+                  <p className="text-gray-600 text-sm">{item.description}</p>
 
                   <div className="flex justify-between items-center">
                     <span className="text-lg font-bold text-gray-800">৳{item.price}</span>
-                    <span className="text-sm text-gray-500">{item.estimatedTime}</span>
+                    <span className="text-sm text-gray-500">{item.esteemed_time} min</span>
                   </div>
 
                   <div className="flex items-center justify-between gap-4 mt-3">
