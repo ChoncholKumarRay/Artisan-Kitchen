@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import foodRoutes from "./routes/foodRoutes.js";
 import menuRoutes from "./routes/menuRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -24,7 +25,7 @@ connectDB();
 app.use(express.json());
 
 app.use("/api/food", foodRoutes);
-
 app.use("/api/menu", menuRoutes);
+app.use("/api/order", orderRoutes);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
