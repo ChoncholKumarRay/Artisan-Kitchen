@@ -1,134 +1,179 @@
 [
   {
-    "_id": "1",
-    "title": "Paratha with Mixed Vegetable Curry",
-    "desc": "Soft layered paratha served with hot and spicy seasonal vegetable curry.",
-    "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "actualPrice": 50,
-    "discPrice": 40,
-    "price": 40,
-    "label": "breakfast",
-    "estimatedTime": "15-20 min"
-  },
-  {
-    "_id": "2",
-    "title": "Dim Bhuna with Roti",
-    "desc": "Traditional spicy egg curry served with freshly made soft roti.",
-    "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "actualPrice": 55,
-    "discPrice": 45,
-    "price": 45,
-    "label": "breakfast",
-    "estimatedTime": "10-15 min"
-  },
-  {
-    "_id": "2",
-    "title": "Dim Bhuna with Roti",
-    "desc": "Traditional spicy egg curry served with freshly made soft roti.",
-    "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "actualPrice": 55,
-    "discPrice": 45,
-    "price": 45,
-    "label": "breakfast",
-    "estimatedTime": "10-15 min"
-  },
-  {
-    "_id": "3",
-    "title": "Khichuri with Beguni",
-    "desc": "Comforting moong dal khichuri served with crispy eggplant fritters.",
-    "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "actualPrice": 60,
-    "discPrice": 50,
-    "price": 50,
-    "label": "breakfast",
-    "estimatedTime": "20-25 min"
-  },
-  {
-    "_id": "4",
-    "title": "Chicken Biriyani",
-    "desc": "Aromatic rice cooked with marinated chicken and signature spices.",
-    "imageUrl": "https://images.unsplash.com/photo-1601214533705-9f24a51b1c2e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "actualPrice": 180,
-    "discPrice": 160,
-    "price": 160,
-    "label": "lunch",
-    "estimatedTime": "30-40 min"
-  },
-  {
-    "_id": "5",
-    "title": "Shorshe Ilish with Rice",
-    "desc": "Hilsa fish in mustard gravy served with steamed rice.",
-    "imageUrl": "https://images.unsplash.com/photo-1601214533705-9f24a51b1c2e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "actualPrice": 300,
-    "discPrice": 270,
-    "price": 270,
-    "label": "lunch",
-    "estimatedTime": "30-40 min"
-  },
-  {
-    "_id": "6",
-    "title": "Beef Rezala with Polao",
-    "desc": "Rich beef rezala paired with fragrant chinigura rice polao.",
-    "imageUrl": "https://images.unsplash.com/photo-1601214533705-9f24a51b1c2e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "actualPrice": 220,
-    "discPrice": 200,
-    "price": 200,
-    "label": "lunch",
-    "estimatedTime": "35-45 min"
-  },
-  {
-    "_id": "6",
-    "title": "Beef Rezala with Polao",
-    "desc": "Rich beef rezala paired with fragrant chinigura rice polao.",
-    "imageUrl": "https://images.unsplash.com/photo-1601214533705-9f24a51b1c2e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "actualPrice": 220,
-    "discPrice": 200,
-    "price": 200,
-    "label": "lunch",
-    "estimatedTime": "35-45 min"
-  },
-  {
-    "_id": "7",
-    "title": "Beef Tehari",
-    "desc": "Classic Dhaka-style beef tehari with aromatic rice and spices.",
-    "imageUrl": "https://images.unsplash.com/photo-1601214533705-9f24a51b1c2e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "actualPrice": 160,
-    "discPrice": 140,
-    "price": 140,
-    "label": "dinner",
-    "estimatedTime": "25-30 min"
-  },
-  {
-    "_id": "8",
-    "title": "Murgir Jhol with Rice",
-    "desc": "Home-style chicken curry served with plain rice.",
-    "imageUrl": "https://images.unsplash.com/photo-1601214533705-9f24a51b1c2e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "actualPrice": 130,
-    "discPrice": 120,
-    "price": 120,
-    "label": "dinner",
-    "estimatedTime": "20-25 min"
-  },
-  {
-    "_id": "9",
-    "title": "Vegetable Bhuna Khichuri",
-    "desc": "Spicy and rich vegetable khichuri served with chutney and salad.",
-    "imageUrl": "https://images.unsplash.com/photo-1601214533705-9f24a51b1c2e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "actualPrice": 100,
-    "discPrice": 90,
-    "price": 90,
-    "label": "dinner",
-    "estimatedTime": "25-30 min"
-  },
-  {
-    "_id": "10",
-    "title": "Vegetable Bhuna Khichuri",
-    "desc": "Spicy and rich vegetable khichuri served with chutney and salad.",
-    "imageUrl": "https://images.unsplash.com/photo-1601214533705-9f24a51b1c2e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "actualPrice": 100,
-    "discPrice": 90,
-    "price": 90,
-    "label": "dinner",
-    "estimatedTime": "25-30 min"
+    "_id": "684571b3919e45e94fdc590f",
+    "breakfast": {
+      "date": "2025-06-06T00:00:00.000Z",
+      "items": [
+        {
+          "_id": "68430005765f27cd3f47a3b7",
+          "title": "Paratha",
+          "description": "Aromatic paratha with chicken curry, onions.",
+          "image_url": "https://images.unsplash.com/photo-1683533743190-89c9b19f9ea6",
+          "actual_price": 100,
+          "discount": 20,
+          "price": 80,
+          "label": "breakfast",
+          "esteemed_time": 25
+        },
+        {
+          "_id": "68430005765f27cd3f47a3b7",
+          "title": "Paratha",
+          "description": "Aromatic paratha with chicken curry, onions.",
+          "image_url": "https://images.unsplash.com/photo-1683533743190-89c9b19f9ea6",
+          "actual_price": 100,
+          "discount": 20,
+          "price": 80,
+          "label": "breakfast",
+          "esteemed_time": 25
+        },
+        {
+          "_id": "6843001f765f27cd3f47a3b8",
+          "title": "Chicken Burger",
+          "description": "Juicy grilled chicken patty in a soft bun with fresh toppings.",
+          "image_url": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
+          "actual_price": 130,
+          "discount": 30,
+          "price": 100,
+          "label": "breakfast",
+          "esteemed_time": 15
+        },
+        {
+          "_id": "6842f6c45b56633a96449fa2",
+          "title": "Khichuri",
+          "description": "Aromatic rice with riped chicken curry!",
+          "image_url": "https://images.unsplash.com/photo-1630409349416-24884761a307",
+          "actual_price": 120,
+          "discount": 20,
+          "price": 100,
+          "label": "breakfast",
+          "esteemed_time": 25
+        }
+      ]
+    },
+    "lunch": {
+      "date": "2025-06-06T00:00:00.000Z",
+      "items": [
+        {
+          "_id": "68430536765f27cd3f47a3b9",
+          "title": "Chicken Fried Rice",
+          "description": "Stir-fried rice with chicken, eggs, and mixed vegetables.",
+          "image_url": "https://images.unsplash.com/photo-1603133872878-684f208fb84b",
+          "actual_price": 180,
+          "discount": 20,
+          "price": 160,
+          "label": "lunch",
+          "esteemed_time": 15
+        },
+        {
+          "_id": "6843055c765f27cd3f47a3ba",
+          "title": "Fish Curry with Rice",
+          "description": "Spicy fish curry served with steamed white rice.",
+          "image_url": "https://images.unsplash.com/photo-1654863404432-cac67587e25d",
+          "actual_price": 220,
+          "discount": 25,
+          "price": 195,
+          "label": "lunch",
+          "esteemed_time": 18
+        },
+        {
+          "_id": "6843055c765f27cd3f47a3ba",
+          "title": "Fish Curry with Rice",
+          "description": "Spicy fish curry served with steamed white rice.",
+          "image_url": "https://images.unsplash.com/photo-1654863404432-cac67587e25d",
+          "actual_price": 220,
+          "discount": 25,
+          "price": 195,
+          "label": "lunch",
+          "esteemed_time": 18
+        },
+        {
+          "_id": "68430594765f27cd3f47a3bb",
+          "title": "Butter Chicken",
+          "description": "Creamy tomato-based curry with tender chicken pieces.",
+          "image_url": "https://images.unsplash.com/photo-1728910107534-e04e261768ae",
+          "actual_price": 240,
+          "discount": 30,
+          "price": 210,
+          "label": "lunch",
+          "esteemed_time": 20
+        }
+      ]
+    },
+    "dinner": {
+      "date": "2025-06-06T00:00:00.000Z",
+      "items": [
+        {
+          "_id": "68456b5c3ef6c5c739bd184f",
+          "title": "Thai Green Curry",
+          "description": "Spicy Thai curry with chicken, coconut milk, and fresh herbs.",
+          "image_url": "https://images.unsplash.com/photo-1612108438004-257c47560118",
+          "actual_price": 280,
+          "discount": 30,
+          "price": 250,
+          "label": "dinner",
+          "esteemed_time": 25,
+          "createdAt": "2025-06-08T10:52:12.848Z",
+          "updatedAt": "2025-06-08T10:52:12.848Z",
+          "__v": 0
+        },
+        {
+          "_id": "68456be03ef6c5c739bd1852",
+          "title": "Paneer Butter Masala",
+          "description": "Cottage cheese cubes in a creamy tomato-based curry.",
+          "image_url": "https://images.unsplash.com/photo-1690401769082-5f475f87fb22",
+          "actual_price": 220,
+          "discount": 20,
+          "price": 200,
+          "label": "dinner",
+          "esteemed_time": 20,
+          "createdAt": "2025-06-08T10:54:24.533Z",
+          "updatedAt": "2025-06-08T10:54:24.533Z",
+          "__v": 0
+        },
+        {
+          "_id": "68456be03ef6c5c739bd1852",
+          "title": "Paneer Butter Masala",
+          "description": "Cottage cheese cubes in a creamy tomato-based curry.",
+          "image_url": "https://images.unsplash.com/photo-1690401769082-5f475f87fb22",
+          "actual_price": 220,
+          "discount": 20,
+          "price": 200,
+          "label": "dinner",
+          "esteemed_time": 20,
+          "createdAt": "2025-06-08T10:54:24.533Z",
+          "updatedAt": "2025-06-08T10:54:24.533Z",
+          "__v": 0
+        },
+        {
+          "_id": "68456be03ef6c5c739bd1852",
+          "title": "Paneer Butter Masala",
+          "description": "Cottage cheese cubes in a creamy tomato-based curry.",
+          "image_url": "https://images.unsplash.com/photo-1690401769082-5f475f87fb22",
+          "actual_price": 220,
+          "discount": 20,
+          "price": 200,
+          "label": "dinner",
+          "esteemed_time": 20,
+          "createdAt": "2025-06-08T10:54:24.533Z",
+          "updatedAt": "2025-06-08T10:54:24.533Z",
+          "__v": 0
+        },
+        {
+          "_id": "68456c423ef6c5c739bd1854",
+          "title": "Mutton Korma",
+          "description": "Slow-cooked tender mutton in a rich and spicy gravy.",
+          "image_url": "https://images.unsplash.com/photo-1559203244-78de52adba0e",
+          "actual_price": 350,
+          "discount": 40,
+          "price": 310,
+          "label": "dinner",
+          "esteemed_time": 30,
+          "createdAt": "2025-06-08T10:56:02.228Z",
+          "updatedAt": "2025-06-08T10:56:02.228Z",
+          "__v": 0
+        }
+      ]
+    },
+    "__v": 0
   }
 ]

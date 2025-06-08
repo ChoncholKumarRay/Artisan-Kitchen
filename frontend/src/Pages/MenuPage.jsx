@@ -9,9 +9,16 @@ const MenuPage = () => {
     fetch('/menu.json')
       .then(res => res.json())
       .then(data => {
-        setMenu(data);
+        const mergedMenu = [
+          ...data[0].breakfast.items.map(item => ({ ...item, label: 'breakfast' })),
+          ...data[0].lunch.items.map(item => ({ ...item, label: 'lunch' })),
+          ...data[0].dinner.items.map(item => ({ ...item, label: 'dinner' }))
+        ];
+
+        setMenu(mergedMenu);
+
         const initialQuantities = {};
-        data.forEach(item => {
+        mergedMenu.forEach(item => {
           initialQuantities[item._id] = 1;
         });
         setQuantities(initialQuantities);
@@ -71,7 +78,7 @@ const MenuPage = () => {
           >
             <div className="relative">
               <img
-                src={item.imageUrl}
+                src={item.image_url}
                 alt={item.title}
                 className="w-full h-52 object-cover"
               />
@@ -85,13 +92,13 @@ const MenuPage = () => {
               <h3 className="text-xl font-bold text-orange-600 mb-2">
                 {item.title}
               </h3>
-              <p className="text-gray-600 text-sm">{item.desc}</p>
+              <p className="text-gray-600 text-sm">{item.description}</p>
               <div className="flex justify-between items-center mt-4 mb-2">
                 <span className="text-lg font-bold text-gray-800">
                   ৳{item.price}
                 </span>
                 <span className="text-sm text-gray-500">
-                  {item.estimatedTime}
+                  {item.esteemed_time} min
                 </span>
               </div>
               <div className="flex items-center justify-between gap-4 mt-4">
