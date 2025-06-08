@@ -53,7 +53,6 @@ const orderSchema = new Schema(
     order_status: {
       type: String,
       enum: ["Placed", "Confirmed", "Paid", "Delivered"],
-      default: "Placed",
     },
   },
   { timestamps: true }
