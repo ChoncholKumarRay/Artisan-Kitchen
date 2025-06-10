@@ -63,4 +63,49 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.post("/checkout", async (req, res) => {
+  const { order_id, name, phone, email, delivery_point } = req.body;
+
+  if (!order_id || !name || !phone || !email || !delivery_point) {
+    return res.status(400).json({
+      success: false,
+      error: "order_id, name, phone, email, and delivery_point are required",
+    });
+  }
+
+  try {
+    const order = await Order.findById(order_id);
+    if (!order) {
+      return res.status(404).json({
+        success: false,
+        error: "Order not found",
+      });
+    }
+
+    const delivery_charge = 30;
+    const payable_amount = order.total_price + delivery_charge;
+
+    order.name = name;
+    order.phone = phone;
+    order.email = email;
+    order.delivery_point = delivery_point;
+    order.delivery_charge = delivery_charge;
+    order.payable_amount = payable_amount;
+
+    await order.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Order updated with checkout info",
+      payable_amount,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      error: "Failed to update order",
+      details: err.message,
+    });
+  }
+});
+
 export default router;
