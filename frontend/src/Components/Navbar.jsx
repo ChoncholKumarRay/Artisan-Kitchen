@@ -107,7 +107,6 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-
         <div className="navbar-end flex items-center space-x-2">
           <Link to={"/cart"}>
             <div className="relative text-gray-700 font-medium hover:text-orange-500 transition-colors flex items-center space-x-1">
