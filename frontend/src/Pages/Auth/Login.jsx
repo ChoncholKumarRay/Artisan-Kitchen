@@ -41,6 +41,7 @@ const Login = () => {
       if (response.ok) {
         // Saving user data as a local storage variable.
         localStorage.setItem("artisan_user", JSON.stringify(data.user));
+        console.log(localStorage.getItem("artisan_user"));
         // Navigate to homepage and refresh
         window.location.href = "/";
       } else {
