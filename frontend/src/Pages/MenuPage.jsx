@@ -101,8 +101,6 @@ const MenuPage = () => {
       updatedCart.dinner_items.length;
 
     localStorage.setItem("cart_count", totalCount.toString());
-
-    alert(`Added ${qty} x ${item.title} to cart!`);
   };
 
   return (
