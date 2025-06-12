@@ -1,4 +1,5 @@
 import { Router } from "express";
+import User from "../models/user.js";
 import Order from "../models/order.js";
 import foodItem from "../models/foodItem.js";
 
@@ -49,9 +50,13 @@ router.post("/", async (req, res) => {
 
     await newOrder.save();
 
+    await User.findByIdAndUpdate(user_id, {
+      $push: { order_list: newOrder._id },
+    });
+
     res.status(201).json({
       success: true,
-      message: "Order placed successfully",
+      message: "Order initiated successfully",
       order_id: newOrder._id,
     });
   } catch (err) {
@@ -92,17 +97,59 @@ router.post("/checkout", async (req, res) => {
     order.delivery_charge = delivery_charge;
     order.payable_amount = payable_amount;
 
+    order.order_status.push({
+      status: "Placed",
+      time: new Date(),
+    });
+
     await order.save();
 
     res.status(200).json({
       success: true,
-      message: "Order updated with checkout info",
+      message: "Order Placed Successfully!",
       payable_amount,
     });
   } catch (err) {
     res.status(500).json({
       success: false,
       error: "Failed to update order",
+      details: err.message,
+    });
+  }
+});
+
+// API endpoint to check order status
+router.post("/status", async (req, res) => {
+  const { order_id } = req.body;
+
+  if (!order_id) {
+    return res.status(400).json({
+      success: false,
+      error: "order_id is required",
+    });
+  }
+
+  try {
+    const order = await Order.findById(order_id).select(
+      "order_status payable_amount"
+    );
+
+    if (!order) {
+      return res.status(404).json({
+        success: false,
+        error: "Order not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      order_status: order.order_status,
+      payable_amount: order.payable_amount,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      error: "Failed to fetch order status",
       details: err.message,
     });
   }
