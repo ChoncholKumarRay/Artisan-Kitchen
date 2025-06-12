@@ -51,7 +51,7 @@ router.post("/", async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: "Order placed successfully",
+      message: "Order initiated successfully",
       order_id: newOrder._id,
     });
   } catch (err) {
@@ -92,11 +92,16 @@ router.post("/checkout", async (req, res) => {
     order.delivery_charge = delivery_charge;
     order.payable_amount = payable_amount;
 
+    order.order_status.push({
+      status: "Placed",
+      time: new Date(),
+    });
+
     await order.save();
 
     res.status(200).json({
       success: true,
-      message: "Order updated with checkout info",
+      message: "Order Placed Successfully!",
       payable_amount,
     });
   } catch (err) {

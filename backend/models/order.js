@@ -50,10 +50,19 @@ const orderSchema = new Schema(
       enum: ["COD"],
       default: "COD",
     },
-    order_status: {
-      type: String,
-      enum: ["Placed", "Confirmed", "Paid", "Delivered"],
-    },
+    order_status: [
+      {
+        status: {
+          type: String,
+          enum: ["Placed", "Confirmed", "Paid", "Delivered"],
+          required: true,
+        },
+        time: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
   },
   { timestamps: true }
 );
