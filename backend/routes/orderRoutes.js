@@ -1,4 +1,5 @@
 import { Router } from "express";
+import User from "../models/user.js";
 import Order from "../models/order.js";
 import foodItem from "../models/foodItem.js";
 
@@ -48,6 +49,10 @@ router.post("/", async (req, res) => {
     });
 
     await newOrder.save();
+
+    await User.findByIdAndUpdate(user_id, {
+      $push: { order_list: newOrder._id },
+    });
 
     res.status(201).json({
       success: true,
