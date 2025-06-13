@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const MenuPage = () => {
   const [menu, setMenu] = useState([]);
@@ -62,7 +63,6 @@ const MenuPage = () => {
   const handleAddToCart = (item) => {
     const qty = quantities[item._id] || 1;
 
-    // Load existing cart or create a new one
     const existingCart = JSON.parse(localStorage.getItem("artisan_cart")) || {
       breakfast_items: [],
       lunch_items: [],
@@ -70,13 +70,10 @@ const MenuPage = () => {
     };
 
     const sectionKey = `${item.label}_items`;
-
-    // Remove existing item (if present)
     const updatedSection = existingCart[sectionKey].filter(
       (entry) => entry.item_id !== item._id
     );
 
-    // Add updated item with more info
     updatedSection.push({
       item_id: item._id,
       quantity: qty,
@@ -85,28 +82,35 @@ const MenuPage = () => {
       price: item.price,
     });
 
-    // Update cart
     const updatedCart = {
       ...existingCart,
       [sectionKey]: updatedSection,
     };
 
-    // Save updated cart
     localStorage.setItem("artisan_cart", JSON.stringify(updatedCart));
 
-    // Update cart count (number of unique items)
     const totalCount =
       updatedCart.breakfast_items.length +
       updatedCart.lunch_items.length +
       updatedCart.dinner_items.length;
 
     localStorage.setItem("cart_count", totalCount.toString());
+
+    // 🔔 Show success toast
+    Swal.fire({
+      toast: true,
+      position: "top-end",
+      icon: "success",
+      title: `${qty} × ${item.title} added to cart`,
+      showConfirmButton: false,
+      timer: 1000,
+    });
   };
 
   return (
     <div className="bg-gray-100 py-16 px-4 sm:px-10">
       <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
-        Todays Menu
+        Today's Menu
       </h1>
 
       <div className="flex justify-center gap-4 mb-12 flex-wrap">
@@ -145,7 +149,6 @@ const MenuPage = () => {
                 {item.label}
               </span>
 
-              {/* Discount badge */}
               {item.discount > 0 && (
                 <div
                   className="absolute bottom-3 right-3 flex flex-col items-center justify-center bg-red-500 text-white rounded-full shadow-lg border-4 border-white"
