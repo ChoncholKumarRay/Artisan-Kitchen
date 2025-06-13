@@ -1,38 +1,56 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    phone: "",
+    password: "",
   });
 
-  const handleChange = e => {
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { email, password } = formData;
-
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-
-    if (!emailRegex.test(email)) {
-      alert('Email must be a valid Gmail address (e.g., you@gmail.com)');
-      return;
-    }
+    const { phone, password } = formData;
 
     if (password.length < 6) {
-      alert('Password must be at least 6 characters');
+      alert("Password must be at least 6 characters");
       return;
     }
 
-    console.log('✅ Login info:', formData);
-    // You can redirect or authenticate here
+    try {
+      // Backend API address
+      const response = await fetch("http://localhost:5000/api/user/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ phone, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Saving user data as a local storage variable.
+        localStorage.setItem("artisan_user", JSON.stringify(data.user));
+        console.log(localStorage.getItem("artisan_user"));
+        // Navigate to homepage and refresh
+        window.location.href = "/";
+      } else {
+        alert(`Login failed: ${data.error || "Unknown error"}`);
+      }
+    } catch (err) {
+      alert("Failed to connect to server");
+      console.error(err);
+    }
   };
 
   return (
@@ -44,20 +62,24 @@ const Login = () => {
 
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Phone Number
+            </label>
             <input
-              type="email"
-              name="email"
-              value={formData.email}
+              type="tel"
+              name="phone"
+              value={formData.phone}
               onChange={handleChange}
-              placeholder="you@gmail.com"
+              placeholder="01XXXXXXXXX"
               className="w-full text-gray-900 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400 transition duration-200"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Password
+            </label>
             <input
               type="password"
               name="password"
@@ -80,7 +102,7 @@ const Login = () => {
         </form>
 
         <div className="text-center text-sm text-gray-600 mt-6">
-          Don&apos;t have an account?{' '}
+          Don&apos;t have an account?{" "}
           <Link to="/register" className="text-orange-500 hover:underline">
             Register
           </Link>
