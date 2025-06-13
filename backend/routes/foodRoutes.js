@@ -1,5 +1,6 @@
 import { Router } from "express";
 import foodItem from "../models/foodItem.js";
+import { adminAuth } from "../middlewares/adminAuth.js";
 
 const router = Router();
 
@@ -27,7 +28,7 @@ router.post("/item", async (req, res) => {
   }
 });
 
-router.post("/add", async (req, res) => {
+router.post("/add", adminAuth, async (req, res) => {
   const {
     title,
     description,
