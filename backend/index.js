@@ -5,13 +5,16 @@ import foodRoutes from "./routes/foodRoutes.js";
 import menuRoutes from "./routes/menuRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import adminRoutes from "./routes/adminRoutes.js";
+
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 app.use(cors());
 
-const MONGO_URI =
-  "mongodb+srv://chonchol:babBivUBi2CEXpPd@cluster0.b0oxdje.mongodb.net/artisan_kitchen?retryWrites=true&w=majority&appName=Cluster0";
+const MONGO_URI = process.env.MONGO_URI;
 
 const connectDB = async () => {
   try {
@@ -31,5 +34,6 @@ app.use("/api/food", foodRoutes);
 app.use("/api/menu", menuRoutes);
 app.use("/api/order", orderRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/admin", adminRoutes);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
