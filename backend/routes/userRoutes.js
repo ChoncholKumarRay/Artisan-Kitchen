@@ -86,4 +86,34 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// POST /api/user/profile
+router.post("/profile", async (req, res) => {
+  const { user_id } = req.body;
+
+  if (!user_id) {
+    return res
+      .status(400)
+      .json({ success: false, error: "user_id is required" });
+  }
+
+  try {
+    const user = await User.findById(user_id).select(
+      "name phone email address balance order_list"
+    );
+
+    if (!user) {
+      return res.status(404).json({ success: false, error: "User not found" });
+    }
+
+    res.status(200).json({
+      success: true,
+      profile: user,
+    });
+  } catch (err) {
+    res
+      .status(500)
+      .json({ success: false, error: "Server error", details: err.message });
+  }
+});
+
 export default router;
