@@ -1,5 +1,6 @@
 import { Router } from "express";
 import foodMenu from "../models/foodMenu.js";
+import { adminAuth } from "../middlewares/adminAuth.js";
 
 const router = Router();
 
@@ -21,27 +22,54 @@ router.get("/", async (req, res) => {
 });
 
 // POST /api/menu/add
-router.post("/add", async (req, res) => {
-  const { breakfast, lunch, dinner } = req.body;
+router.post("/add", adminAuth, async (req, res) => {
+  const { breakfast = [], lunch = [], dinner = [] } = req.body;
 
-  if (!breakfast || !lunch || !dinner) {
-    return res
-      .status(400)
-      .json({ success: false, error: "Missing required fields" });
+  if (!breakfast.length && !lunch.length && !dinner.length) {
+    return res.status(400).json({
+      success: false,
+      error: "At least one of breakfast, lunch, or dinner items is required",
+    });
   }
 
   try {
-    const newMenu = new foodMenu({ breakfast, lunch, dinner });
-    await newMenu.save();
-    res.status(201).json({
+    let menu = await foodMenu.findOne();
+
+    if (!menu) {
+      menu = new foodMenu({
+        breakfast: { date: new Date(), items: breakfast },
+        lunch: { date: new Date(), items: lunch },
+        dinner: { date: new Date(), items: dinner },
+      });
+    } else {
+      const now = new Date();
+
+      if (breakfast.length) {
+        menu.breakfast.items.push(...breakfast);
+        menu.breakfast.date = now;
+      }
+
+      if (lunch.length) {
+        menu.lunch.items.push(...lunch);
+        menu.lunch.date = now;
+      }
+
+      if (dinner.length) {
+        menu.dinner.items.push(...dinner);
+        menu.dinner.date = now;
+      }
+    }
+
+    await menu.save();
+
+    res.status(200).json({
       success: true,
-      message: "Menu added successfully",
-      data: newMenu,
+      message: "Menu updated successfully",
     });
   } catch (err) {
     res.status(500).json({
       success: false,
-      error: "Failed to add menu",
+      error: "Failed to update menu",
       details: err.message,
     });
   }

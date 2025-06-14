@@ -2,6 +2,7 @@ import { Router } from "express";
 import User from "../models/user.js";
 import Order from "../models/order.js";
 import foodItem from "../models/foodItem.js";
+import { adminAuth } from "../middlewares/adminAuth.js";
 
 const router = Router();
 
@@ -150,6 +151,55 @@ router.post("/status", async (req, res) => {
     res.status(500).json({
       success: false,
       error: "Failed to fetch order status",
+      details: err.message,
+    });
+  }
+});
+
+// POST /api/order/update-status
+router.post("/update-status", adminAuth, async (req, res) => {
+  const { order_id, status } = req.body;
+
+  if (!order_id || !status) {
+    return res.status(400).json({
+      success: false,
+      error: "order_id and status are required",
+    });
+  }
+
+  const allowedStatuses = ["Placed", "Confirmed", "Paid", "Delivered"];
+  if (!allowedStatuses.includes(status)) {
+    return res.status(400).json({
+      success: false,
+      error: "Invalid status value",
+    });
+  }
+
+  try {
+    const order = await Order.findById(order_id);
+    if (!order) {
+      return res.status(404).json({
+        success: false,
+        error: "Order not found",
+      });
+    }
+
+    order.order_status.push({
+      status,
+      time: new Date(),
+    });
+
+    await order.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Order status updated",
+      order_status: order.order_status,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      error: "Failed to update status",
       details: err.message,
     });
   }
