@@ -7,7 +7,6 @@ const router = Router();
 // POST /api/food/item
 router.post("/item", async (req, res) => {
   const { item_id } = req.body;
-  console.log("Request Body:", req.body);
 
   try {
     const item = await foodItem.findById(item_id);
@@ -28,6 +27,7 @@ router.post("/item", async (req, res) => {
   }
 });
 
+// POST /api/food/add
 router.post("/add", adminAuth, async (req, res) => {
   const {
     title,
@@ -61,6 +61,40 @@ router.post("/add", adminAuth, async (req, res) => {
     res.status(500).json({
       success: false,
       error: "Failed to add item",
+      details: err.message,
+    });
+  }
+});
+
+// POST /api/food/remove
+router.post("/remove", adminAuth, async (req, res) => {
+  const { item_id } = req.body;
+
+  if (!item_id) {
+    return res.status(400).json({
+      success: false,
+      error: "item_id is required",
+    });
+  }
+
+  try {
+    const deleted = await foodItem.findByIdAndDelete(item_id);
+
+    if (!deleted) {
+      return res.status(404).json({
+        success: false,
+        error: "Food item not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Food item removed successfully",
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      error: "Failed to remove item",
       details: err.message,
     });
   }
