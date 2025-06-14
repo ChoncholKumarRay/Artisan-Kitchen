@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
 import foodRoutes from "./routes/foodRoutes.js";
 import menuRoutes from "./routes/menuRoutes.js";
@@ -12,7 +13,9 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-app.use(cors());
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+
+app.use(cookieParser());
 
 const MONGO_URI = process.env.MONGO_URI;
 
