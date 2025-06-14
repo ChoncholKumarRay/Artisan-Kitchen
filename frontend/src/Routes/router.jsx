@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
                 element: <Profile />
             },
             {
-                path: "/order",
+                path: "/order/:orderId",
                 element: <OrderPage />
             },
 
