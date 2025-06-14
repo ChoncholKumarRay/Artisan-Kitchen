@@ -5,6 +5,9 @@ import MenuPage from "../Pages/MenuPage"
 import Cart from "../Pages/Cart"
 import Login from "../Pages/Auth/Login"
 import Register from "../Pages/Auth/Register"
+import CheckoutPage from "../Pages/CheckoutPage"
+import Profile from "../Pages/Profile"
+import OrderPage from "../Pages/OrderPage"
 
 export const router = createBrowserRouter([
     {
@@ -13,24 +16,37 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home/>
+                element: <Home />
             },
             {
                 path: "/menu",
-                element: <MenuPage/>
+                element: <MenuPage />
             },
             {
                 path: "/cart",
-                element: <Cart/>
+                element: <Cart />
             },
             {
                 path: "/login",
-                element:<Login/>
+                element: <Login />
             },
             {
                 path: "/register",
-                element: <Register/>
-            }
+                element: <Register />
+            },
+            {
+                path: "/checkout/:orderId",
+                element: <CheckoutPage />
+            },
+            {
+                path: "/profile",
+                element: <Profile />
+            },
+            {
+                path: "/order/:orderId",
+                element: <OrderPage />
+            },
+
         ]
     }
 ])

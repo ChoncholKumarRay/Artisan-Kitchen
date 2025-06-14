@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -60,7 +61,7 @@ const Cart = () => {
   );
 
   const [loading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
   const handleCheckout = async () => {
     setLoading(true);
 
@@ -88,9 +89,14 @@ const Cart = () => {
       });
 
       const result = await response.json();
-      alert(result.message || result.error || "Something happened");
+      //alert(result.message || result.error || "Something happened");
 
       setLoading(false);
+      const orderId = result.order_id;
+      
+      localStorage.removeItem("artisan_cart");
+      navigate(`/checkout/${orderId}`);
+
     } catch (err) {
       console.error(err);
       alert("Failed to place order");
