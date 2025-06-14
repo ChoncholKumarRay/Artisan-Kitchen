@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
 
-  // Load cart items from localStorage
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("artisan_cart")) || {
       breakfast_items: [],
@@ -60,6 +59,9 @@ const Cart = () => {
     0
   );
 
+  const deliveryCharge = 30;
+  const payableAmount = totalPrice + deliveryCharge;
+
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleCheckout = async () => {
@@ -89,14 +91,13 @@ const Cart = () => {
       });
 
       const result = await response.json();
-      //alert(result.message || result.error || "Something happened");
 
       setLoading(false);
       const orderId = result.order_id;
-      
-      localStorage.removeItem("artisan_cart");
-      navigate(`/checkout/${orderId}`);
 
+      localStorage.removeItem("artisan_cart");
+      localStorage.removeItem("cart_count");
+      navigate(`/checkout/${orderId}`);
     } catch (err) {
       console.error(err);
       alert("Failed to place order");
@@ -129,12 +130,8 @@ const Cart = () => {
                   {item.title}
                 </h3>
                 <div className="flex items-center gap-2 mt-1">
-                  <span className="text-orange-600 font-bold">
-                    ৳{item.price}
-                  </span>
-                  <span className="text-gray-700 text-sm ml-2">
-                    × {item.quantity}
-                  </span>
+                  <span className="text-orange-600 font-bold">৳{item.price}</span>
+                  <span className="text-gray-700 text-sm ml-2">× {item.quantity}</span>
                 </div>
               </div>
               <button
@@ -146,11 +143,21 @@ const Cart = () => {
             </div>
           ))}
 
-          <div className="bg-white rounded-lg shadow-md p-5">
-            <div className="flex justify-between items-center text-lg font-semibold text-gray-800 mb-4">
+          <div className="bg-white rounded-lg shadow-md p-5 space-y-3">
+            <div className="flex justify-between items-center text-lg font-semibold text-gray-800">
               <span>Total</span>
               <span>৳{totalPrice}</span>
             </div>
+            <div className="flex justify-between items-center text-lg font-semibold text-gray-800">
+              <span>Delivery Charge</span>
+              <span>৳{deliveryCharge}</span>
+            </div>
+            <hr className="border-gray-300" />
+            <div className="flex justify-between items-center text-xl font-bold text-gray-900">
+              <span>Payable Amount</span>
+              <span>৳{payableAmount}</span>
+            </div>
+
             <button
               onClick={handleCheckout}
               disabled={loading}
