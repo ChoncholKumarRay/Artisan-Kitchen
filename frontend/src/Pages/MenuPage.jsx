@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MenuPage = () => {
@@ -59,8 +60,14 @@ const MenuPage = () => {
       [id]: Math.max(1, (prev[id] || 1) + delta),
     }));
   };
-
+  const navigate = useNavigate();
   const handleAddToCart = (item) => {
+
+    const user = JSON.parse(localStorage.getItem("artisan_user"));
+    if (!user) {
+      navigate('/login'); 
+      return;
+    }
     const qty = quantities[item._id] || 1;
 
     const existingCart = JSON.parse(localStorage.getItem("artisan_cart")) || {

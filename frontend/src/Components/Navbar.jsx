@@ -52,6 +52,8 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("artisan_user");
+    localStorage.removeItem("artisan_cart");
+    localStorage.removeItem("cart_count");
     setUser(null);
     setShowDropdown(false);
     navigate("/login");
