@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FoodItem from "../Components/FoodItem";
+import Dashboard from "../Components/Dashboard";
 import {
   FaTachometerAlt,
   FaHamburger,
@@ -39,7 +40,7 @@ const AdminDashboardPage = () => {
         <FaHome className="inline mr-2" />
         Go to Home
       </button>
-      {activeTab === "dashboard" && <div>Dashboard Content</div>}
+      {activeTab === "dashboard" && <Dashboard />}
       {activeTab === "food-item" && <FoodItem />}
       {activeTab === "food-menu" && <div>Food Menu Content</div>}
     </div>
