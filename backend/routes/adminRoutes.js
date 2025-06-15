@@ -2,6 +2,8 @@ import { Router } from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import Admin from "../models/admin.js";
+import Order from "../models/order.js";
+import { adminAuth } from "../middlewares/adminAuth.js";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -51,6 +53,30 @@ router.post("/login", async (req, res) => {
     res
       .status(500)
       .json({ success: false, error: "Server error", details: err.message });
+  }
+});
+
+// GET /api/admin/dashboard
+router.get("/dashboard", adminAuth, async (req, res) => {
+  try {
+    const orders = await Order.find()
+      .populate("user_id", "name email phone")
+      .populate("breakfast_items.item_id", "title price")
+      .populate("lunch_items.item_id", "title price")
+      .populate("dinner_items.item_id", "title price")
+      .sort({ createdAt: -1 }); // latest orders first
+
+    res.status(200).json({
+      success: true,
+      orders,
+    });
+  } catch (err) {
+    console.error("Error fetching orders:", err.message);
+    res.status(500).json({
+      success: false,
+      error: "Failed to fetch orders",
+      details: err.message,
+    });
   }
 });
 

@@ -54,7 +54,7 @@ const orderSchema = new Schema(
       {
         status: {
           type: String,
-          enum: ["Placed", "Confirmed", "Paid", "Delivered"],
+          enum: ["Placed", "Confirmed", "Paid", "Delivered", "Canceled"],
           required: true,
         },
         time: {
