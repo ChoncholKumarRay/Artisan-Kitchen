@@ -27,6 +27,23 @@ router.post("/item", async (req, res) => {
   }
 });
 
+// GET /api/food/
+router.get("/", adminAuth, async (req, res) => {
+  try {
+    const items = await foodItem.find({});
+    res.status(200).json({
+      success: true,
+      items,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      error: "Failed to fetch food items",
+      details: err.message,
+    });
+  }
+});
+
 // POST /api/food/add
 router.post("/add", adminAuth, async (req, res) => {
   const {
